@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+<class name="OrderItem" table="orderItems">
+
+<id name="OId" type="int" column="OId">
+<generator class="increment" />
+</id>
+<property name="quantity" type="int" column="quantity" />
+<property name="cost"  column="cost" type="double"/>
+
+
+<many-to-one name="order" class="Order" column="orderId" />
+
+<many-to-one name="book" class="Book" column="bid" />
+
+</class>
+</hibernate-mapping>

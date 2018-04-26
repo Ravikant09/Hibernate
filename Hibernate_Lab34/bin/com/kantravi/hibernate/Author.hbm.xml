@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+<class name="Author" table="authors">
+<id name="aid" type="int" column="authorId">
+<generator class="increment" />
+</id>
+<property name="aname" type="string" column="authorName" />
+<property name="email"  column="email" />
+<property name="phone" type="long" column="phone" />
+
+<bag name="qualification" table="qualification" >
+
+<key column="aid" />
+<element column="qualification" type="string" />
+</bag>
+
+<set name="experiences" table="experiences">
+
+<key column="aid" />
+<element column="experience" type="string"/>
+
+</set>
+
+<set name="books" table="books_author">
+
+<key column="AuthorId"/>
+<many-to-many class="Book" column="BookId"/>
+
+</set>
+
+</class>
+</hibernate-mapping>

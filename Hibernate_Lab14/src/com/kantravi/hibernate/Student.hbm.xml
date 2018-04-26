@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+
+<class name="Student" table="mystudent1">
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+<property name="sname"  />
+<property name="city"  />
+<property name="status"  />
+<property name="totalfee" type="double" />
+
+</class>
+
+<class name="CurrentStudent" table="mycurrentStudent1">
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+<property name="sname"  />
+<property name="city"  />
+<property name="status"  />
+<property name="totalfee" type="double" />
+<property name="feebal" type="double" column="feebal" />
+<property name="timing"  type="string" column="timing"/>
+<property name="branch" column="branch" />
+
+</class>
+
+<class name="WeekendStudent" table="myweekendStudent1">
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+<property name="sname"  />
+<property name="city"  />
+<property name="status"  />
+<property name="totalfee" type="double" />
+<property name="feebal" type="double" column="feebal" />
+<property name="timing"  type="string" column="timing"/>
+<property name="branch" column="branch" />
+<property name="wCompany" type="string" column="wCompany" />
+<property name="wEmail"  type="string" column="wEmail" />
+<property name="wCTC"  type="double" column="wCTC" />
+</class>
+
+<class name="WeekdayStudent" table="myweekdayStudent1">
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+<property name="sname"  />
+<property name="city"  />
+<property name="status"  />
+<property name="totalfee" type="double" />
+<property name="feebal" type="double" column="feebal" />
+<property name="timing"  type="string" column="timing"/>
+<property name="branch" column="branch" />
+<property name="qualification" type="string" column="qualification"  />
+<property name="percentage" column="percentage" />
+<property name="yop" type="int" column="yop"  />
+
+</class>
+
+
+<class name="OldStudent" table="myoldStudent1">
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+<property name="sname"  />
+<property name="city"  />
+<property name="status"  />
+<property name="totalfee" type="double" />
+<property name="oCompany" type="string" column="oCompany"  />
+<property name="oEmail" column="oEmail" />
+<property name="oCTC" type="double" column="oCTC"  />
+
+
+</class>
+</hibernate-mapping>
+
+
+<!-- Here separate primary key for seperate  -->

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+<class name="Student" table="mystudents" lazy="false">
+<id name="sid" type="int" column="sid">
+<generator class="increment" />
+</id>
+<property name="sname" type="string" column="sname" length="40"/>
+
+<property name="dob"   />
+
+
+<array name="milk" table="milk" >
+
+<key column="sid"/>
+<index column="idx"/>
+<element column="milkname" type="string"/>
+
+</array>
+
+<list name="bisc" table="bisc" lazy="false">
+
+<key column="sid"/>
+<index column="biscorder"/>
+<element column="biscuit" type="string"/>
+
+</list>
+
+
+<set name="games" table="mygames" lazy="false">
+
+<key column="sid"/>
+<element column="games" type="string"/>
+</set>
+
+
+
+
+</class>
+</hibernate-mapping>
+
+
+<!-- By Default Property will take String type So for String Type Data it may not 
+be needed to specify type 
+
+
+In List we must specify key,index and element 
+
+Now Suppose a situation comes like we need only key and do not need order i.e index is not required only key and column is required for that we cannot do with 
+list we need to go for bag
+
+In marks we do not need order so we can use bag if I use list than I must have to specify order(index)
+
+Bag is a tag in XML used only for list type element 
+
+For Array we must have to use key ,index and element
+
+For Set we need only element and key we do not need index as SET do not represent 
+with index
+
+For MAP we must need key,index and element as MAP is key value combination but here
+index is for key and element is for value
+
+Here Array,List and Set data should be placed in a separate table so we need the 
+concept of foreign key so use Key i.e Key IS Like ForeignKey
+
+Default index name is idx but we can change the name
+
+		Property default type is String 
+		Element has no default type 
+		Index has default type integer
+	
+	So in Index and Property we can change the type and if we do not change the type than their default Data-Type will be taken 
+	Since Element do not have a default Data-Type we must have to specify data type while mapping and if we donot do that we get ERROR
+
+-->

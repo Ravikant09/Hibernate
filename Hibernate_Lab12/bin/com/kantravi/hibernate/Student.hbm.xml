@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+
+<class name="Student" table="jlcstudent" discriminator-value="STU">
+
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+<discriminator column="stutype" length="8"/>
+
+<property name="sname"  />
+<property name="city"  />
+<property name="status"  />
+<property name="totalfee" type="double" />
+
+<subclass name="CurrentStudent" discriminator-value="CSTU">
+
+<property name="feebal" type="double" column="feebal" />
+<property name="timing"  type="string" column="timing"/>
+<property name="branch" column="branch" />
+
+<subclass name="WeekendStudent" discriminator-value="WNSTU">
+
+<property name="wCompany" type="string" column="wCompany" />
+<property name="wEmail"  type="string" column="wEmail" />
+<property name="wCTC"  type="double" column="wCTC" />
+</subclass>
+
+<subclass name="WeekdayStudent" discriminator-value="WDSTU">
+
+<property name="qualification" type="string" column="qualification"  />
+<property name="percentage" column="percentage" />
+<property name="yop" type="int" column="yop"  />
+
+</subclass>
+
+</subclass>
+
+<subclass name="OldStudent" discriminator-value="OSTU">
+
+<property name="oCompany" type="string" column="oCompany"  />
+<property name="oEmail" column="oEmail" />
+<property name="oCTC" type="double" column="oCTC"  />
+
+</subclass>
+
+</class>
+</hibernate-mapping>
+
+
+<!-- With Discriminator value we can identify the class
+
+Here instead of join-subclass for table per class we sue subclass and since all will 
+be in same table so separate table will not be created 
+So No Option to create table for sub-class
+here no foreign key(i.e no <key column="......">)
+-->

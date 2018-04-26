@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+
+<class name="Student" table="mystudent">
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+<property name="sname"  />
+<property name="city"  />
+<property name="status"  />
+<property name="totalfee" type="double" />
+
+<joined-subclass name="CurrentStudent" table="mycurrentStudent">
+
+<key column="sid" />
+<property name="feebal" type="double" column="feebal" />
+<property name="timing"  type="string" column="timing"/>
+<property name="branch" column="branch" />
+
+<joined-subclass name="WeekendStudent" table="myweekendStudent">
+
+<key column="sid" />
+<property name="wCompany" type="string" column="wCompany" />
+<property name="wEmail"  type="string" column="wEmail" />
+<property name="wCTC"  type="double" column="wCTC" />
+</joined-subclass>
+
+<joined-subclass name="WeekdayStudent" table="myweekdayStudent">
+
+<key column="sid" />
+<property name="qualification" type="string" column="qualification"  />
+<property name="percentage" column="percentage" />
+<property name="yop" type="int" column="yop"  />
+
+</joined-subclass>
+
+</joined-subclass>
+
+<joined-subclass name="OldStudent" table="myoldStudent">
+
+<key column="sid" />
+<property name="oCompany" type="string" column="oCompany"  />
+<property name="oEmail" column="oEmail" />
+<property name="oCTC" type="double" column="oCTC"  />
+
+</joined-subclass>
+
+</class>
+</hibernate-mapping>
+
+

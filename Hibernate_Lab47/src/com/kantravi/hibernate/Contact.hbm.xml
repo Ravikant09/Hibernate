@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+<class name="Contact" table="contacts">
+
+
+<id name="contactId" type="int" column="contactId">
+
+<generator class="sequence">
+
+<param name="sequence" >contactId_seq</param>		<!--contactId_seq must be same name as we create sequence in Oracle DB  -->
+
+</generator>
+
+</id>
+
+<property name="firstName" type="string" column="firstName" length="10"/>
+
+<property name="lastName" type="string" column="lastName" length="10"/>
+
+<property name="phone" type="long" column="phone" />
+
+<property name="dob"  column="dob"  type="string" length="10"/>
+
+<property name="status"  column="status" length="8"/>
+
+</class>
+
+<sql-query name="getAllContacts_SP" callable="true" >
+
+<return class="Contact">
+
+
+<return-property name="contactId" column="contactId" />
+<return-property name="firstName" column="firstName" />
+<return-property name="lastName" column="lastName" />
+<return-property name="phone" column="phone" />
+<return-property name="dob" column="dob" />
+<return-property name="status" column="status" />
+
+</return>
+
+{call getAllContacts(?)}
+
+</sql-query>
+
+
+
+
+<sql-query name="getAllActiveContacts_SP" callable="true" >
+
+<return class="Contact">
+
+
+<return-property name="contactId" column="contactId" />
+<return-property name="firstName" column="firstName" />
+<return-property name="lastName" column="lastName" />
+<return-property name="phone" column="phone" />
+<return-property name="dob" column="dob" />
+<return-property name="status" column="status" />
+
+</return>
+
+{call getAllActiveContacts(?,:st)}
+
+</sql-query>
+
+</hibernate-mapping>

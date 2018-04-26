@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+
+<class name="Student" table="newStudent">
+
+
+<id name="sid" column="sid" type="int">
+<generator class="increment" />
+</id>
+
+
+<property name="sName" column="sName" type="string" />
+<property name="email" column="email"  />
+<property name="phone" column="phone" type="string" />
+
+<set name="courses" table="stu_cou">
+<key column="StudentId" />
+<many-to-many class="Course" column="CourseId"/>
+
+</set>
+
+</class>
+</hibernate-mapping>
+
+<!-- Here default lazy loading is there for Request and Customer -->
