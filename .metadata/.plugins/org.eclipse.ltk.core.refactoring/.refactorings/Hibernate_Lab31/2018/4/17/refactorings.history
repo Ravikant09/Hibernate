@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.sunny.hibernate&apos; to &apos;com.kantravi.hibernate&apos;&#x0D;&#x0A;- Original project: &apos;Hibernate_Lab31&apos;&#x0D;&#x0A;- Original element: &apos;Hibernate_Lab31/src/com.sunny.hibernate&apos;&#x0D;&#x0A;- Renamed element: &apos;Hibernate_Lab31/src/com.kantravi.hibernate&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.sunny.hibernate&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.sunny.hibernate" name="com.kantravi.hibernate" qualified="false" references="true" stamp="1524592042689" textual="false" version="1.0"/>
+</session>

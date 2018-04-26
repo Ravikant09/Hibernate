@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+<class name="Customer" table="customers">
+<id name="cid" type="int" column="cid">
+<generator class="increment" />
+</id>
+<property name="cname" type="string" column="cname" />
+<property name="email"  column="email" />
+<property name="phone" type="long"  />
+
+<many-to-one name="CCCard" class="CreditCard" column="CreditCardId" unique="true" />
+
+<set name="orders">
+
+<key column="cid" />
+<one-to-many class="Order"/>
+
+</set>
+
+<joined-subclass name="SilverCustomer" table="SCustomer">
+
+<key column="cid" />
+<property name="city" type="string" column="city" />
+<property name="RPoints" type="int"  />
+<property name="OEmail"/>
+
+</joined-subclass>
+
+<joined-subclass name="GoldCustomer" table="GCustomer">
+
+<key column="cid"/>
+<property name="OPhone" type="long" column="OPhone" />
+<property name="point" type="int" column="point" />
+
+<map name="refs" table="Reference">
+
+<key column="cid"/>
+<index column="ReferenceName" type="string" />
+<element column="ReferenceEmail" type="string"/>
+</map>
+
+
+</joined-subclass>
+
+
+</class>
+
+</hibernate-mapping>

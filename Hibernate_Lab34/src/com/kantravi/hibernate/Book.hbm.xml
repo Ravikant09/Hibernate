@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+<class name="Book" table="books">
+<id name="bid" type="int" column="bid">
+<generator class="increment" />
+</id>
+<property name="bname" type="string" column="bookName" />
+<property name="cost"  column="cost" type="double"/>
+<property name="edition" type="int" column="edition" />
+<property name="publication"  column="publication"  type="string"/>
+
+<set name="authors" table="books_author">
+
+<key column="BookId"/>
+<many-to-many class="Author" column="AuthorId"/>
+
+</set>
+
+
+</class>
+</hibernate-mapping>

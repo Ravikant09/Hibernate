@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+
+<class name="Customer" table="newCustomer">
+
+
+<id name="cid" column="cid" type="int">
+<generator class="increment" />
+</id>
+
+
+<property name="firstName" column="firstName" type="string" />
+<property name="lastName" column="lastName" type="string" />
+<property name="email" column="email" type="string" />
+<property name="phone" column="phone" type="string" />
+
+<many-to-one name="address" class="Address" column="aid" />
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.sunny.hibernate">
+<class name="CreditCard" table="CreditCards">
+<id name="CCId" type="int" column="CreditCardId">
+<generator class="increment" />
+</id>
+<property name="CCNo" type="int" column="CreditCardNo" />
+<property name="CCType"  column="CreditCardType" />
+<property name="code" type="int"  />
+<property name="expiaryDate" type="date"  />
+
+<one-to-one name="customer" class="Customer" />
+
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/myhibernate</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping resource="com/sunny/hibernate/Customer.hbm.xml" />
+		
+    </session-factory>
+</hibernate-configuration>
+
+
+
+<!-- here we do not use to create table in database here table will be created 
+automatically by hibernate if we create and if table is not create and if 
+table already exist than create will drop that table than create new table but
+in case of update hibernate will update if table already exist
+-->
